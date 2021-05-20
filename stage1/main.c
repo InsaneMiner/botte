@@ -1,12 +1,12 @@
-#include "arch/x86/common.h"
-#include "formats/elf/elf.h"
+//#include "arch/x86/common.h"
+//#include "formats/elf/elf.h"
 
 #define SECTSIZE 512
 
 
 int  stage2(){
-    struct elfhdr *elf;
-    elf = (struct elfhdr*)0x10000;
+    //struct elfhdr *elf;
+    //elf = (struct elfhdr*)0x10000;
 
 
     
