@@ -24,7 +24,7 @@ boot:
 	int 0x13
 
 	cli
-	lgdt [gdt_]
+	lgdt [gdt_ptr]
 	
 	mov eax, cr0
     or eax,0x1
@@ -58,7 +58,7 @@ bits16:
     jmp 0x18:.done
 .done:
     ret
-
+gdt_start:
 gdt_:
 ;null descriptor
     dd 0
@@ -91,7 +91,11 @@ gdt_:
 	db 10010010b
     db 00000000b ; (1 byte)
 	db 0x0
+gdt_end:
 
+gdt_ptr:
+    dw gdt_end - gdt_start - 1
+    dd gdt_start
 disk:
 	db 0x0
 
